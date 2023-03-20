@@ -132,7 +132,7 @@ const getAdobeIds = () => {
 	}
 
 	notify(
-		3000,
+		0,
 		0,
 		[
 			{
