@@ -130,6 +130,7 @@ function notify(duration, delay = 0, buttons = null, title, ...text) {
 
 	if (buttons) {
 		buttons.forEach((button) => {
+			if (button?.text == undefined || button?.callback == undefined) return;
 			const notificationButton = document.createElement("button");
 			const notificationButtons = notification.querySelector(
 				"#fourETB-notificationButtons"

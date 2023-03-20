@@ -1,10 +1,15 @@
-function mark(element, delay, end = 0, scrollTo = true) {
+function mark(element, delay, end = 0, index, scrollTo = true) {
+	document.querySelectorAll("*").forEach((element) => {
+		element.style.outline = "";
+		element.style.outlineOffset = "";
+	});
+
 	setTimeout(() => {
 		if (scrollTo) {
 			element.scrollIntoView({ behavior: "smooth", block: "center" });
 		}
 
-		element.style.outline = "1px solid red";
+		element.style.outline = "2px solid red";
 		element.style.outlineOffset = "2px";
 
 		if (end === 0) {
@@ -19,4 +24,8 @@ function copyToClipboard(text) {
 	navigator.clipboard.writeText(text).then(() => {
 		notify(3000, 0, null, "Copied to clipboard", text);
 	});
+}
+
+function randomColor() {
+	return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
 }

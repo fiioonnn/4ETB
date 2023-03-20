@@ -12,6 +12,9 @@ browser.runtime.onMessage.addListener(async function (
 	if (request.action == "checkLinks") checkLinks();
 	if (request.action == "checkImages") checkImages();
 	if (request.action == "outlines") outlines();
-	if (request.action == "getAdobeIds") getAdobeIds();
 	if (request.action == "detectOverflow") detectOverflow();
+	if (request.action == "fetchAdobeIds") fetchAdobeIds("all");
+	if (request.action == "getAdobeIds") getAdobeIds();
+	if (request.action == "clearAdobeIds") clearAdobeIds();
+	if (request.action == "detectEmptyCssRules") detectEmptyCssRules();
 });

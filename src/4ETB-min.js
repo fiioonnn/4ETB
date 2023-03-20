@@ -1,1 +1,0 @@
-browser.runtime.onMessage.addListener((async function(e,c,t){"checkLinks"==e.action&&checkLinks(),"checkImages"==e.action&&checkImages(),"outlines"==e.action&&outlines(),"getAdobeIds"==e.action&&getAdobeIds(),"detectOverflow"==e.action&&detectOverflow()}));
