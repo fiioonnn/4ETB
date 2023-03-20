@@ -17,4 +17,5 @@ browser.runtime.onMessage.addListener(async function (
 	if (request.action == "getAdobeIds") getAdobeIds();
 	if (request.action == "clearAdobeIds") clearAdobeIds();
 	if (request.action == "detectEmptyCssRules") detectEmptyCssRules();
+	if (request.action == "findLoremIpsumText") findLoremIpsumText();
 });

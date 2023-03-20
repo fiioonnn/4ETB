@@ -18,6 +18,7 @@ $("#fetchAdobeIds").onclick = () => send("fetchAdobeIds");
 $("#getAdobeIds").onclick = () => send("getAdobeIds");
 $("#clearAdobeIds").onclick = () => send("clearAdobeIds");
 $("#detectEmptyCssRules").onclick = () => send("detectEmptyCssRules");
+$("#findLoremIpsumText").onclick = () => send("findLoremIpsumText");
 
 function $(selector) {
 	return document.querySelector(selector);

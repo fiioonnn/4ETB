@@ -6,15 +6,18 @@ function checkLinks() {
 		emptyFragment: [],
 		externalLinks: [],
 		nonSSL: [],
+		targetBlank: [],
 	};
 
 	links.forEach((link) => {
 		const href = link.getAttribute("href");
+		const target = link.getAttribute("target");
 
 		if (!href) return result.missingHref.push(link);
 		if (href === "") return result.emptyHref.push(link);
 		if (href === "#") return result.emptyFragment.push(link);
 		if (href.startsWith("http://")) return result.nonSSL.push(link);
+		if (target === "_blank") return result.targetBlank.push(link);
 		if (
 			link.host !== location.host &&
 			!href.startsWith("mailto") &&
@@ -54,13 +57,18 @@ function checkLinks() {
 				text: "Mark non SSL links",
 				callback: markResults.bind(null, result.nonSSL),
 			},
+			result.targetBlank.length > 0 && {
+				text: "Mark target blank links",
+				callback: markResults.bind(null, result.targetBlank),
+			},
 		],
 		"4ETB - Check Links",
 		`Missing href: ${result.missingHref.length}`,
 		`Empty href: ${result.emptyHref.length}`,
 		`Empty fragment: ${result.emptyFragment.length}`,
 		`External Links: ${result.externalLinks.length}`,
-		`Non SSL Links: ${result.nonSSL.length}`
+		`Non SSL Links: ${result.nonSSL.length}`,
+		`Target blank: ${result.targetBlank.length}`
 	);
 }
 
@@ -98,7 +106,7 @@ function detectOverflow() {
 		5000,
 		0,
 		[
-			{
+			overflowingElements.length && {
 				text: "Mark overflowing elements",
 				callback: () => {
 					overflowingElements.forEach((element, index) => {
@@ -285,5 +293,58 @@ function checkImages() {
 		"Check Images",
 		`Missing or Empty alt attributes: ${result.missingAlt.length}`,
 		`Missing or Empty src attributes: ${result.missingSrc.length}`
+	);
+}
+
+function findLoremIpsumText() {
+	const elements = Array.from(document.querySelectorAll("*"));
+	const allowedTags = [
+		"p",
+		"h1",
+		"h2",
+		"h3",
+		"h4",
+		"h5",
+		"h6",
+		"li",
+		"span",
+		"a",
+		"b",
+		"s",
+		"i",
+		"button",
+		"input",
+		"textarea",
+		"strong",
+		"u",
+	];
+	const loremIpsum = ["lorem", "ipsum", "dolor", "sit", "amet", "consectetur"];
+	let result = [];
+
+	elements.forEach((element) => {
+		if (!allowedTags.includes(element.tagName.toLowerCase())) return;
+
+		const text = element.textContent.toLowerCase();
+
+		if (loremIpsum.some((word) => text.includes(word))) {
+			result.push(element);
+		}
+	});
+
+	notify(
+		5000,
+		0,
+		[
+			result.length && {
+				text: "Mark lorem ipsum text",
+				callback: () => {
+					result.forEach((element, index) => {
+						mark(element, index * 300, result.length - 1, index);
+					});
+				},
+			},
+		],
+		"Lorem Ipsum",
+		`Found ${result.length} elements, that contain lorem ipsum text`
 	);
 }

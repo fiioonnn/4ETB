@@ -14,6 +14,7 @@ browser.runtime.onMessage.addListener((message) => {
 	if (message.action === "getAdobeIds") send("getAdobeIds");
 	if (message.action === "clearAdobeIds") send("clearAdobeIds");
 	if (message.action === "detectEmptyCssRules") send("detectEmptyCssRules");
+	if (message.action === "findLoremIpsumText") send("findLoremIpsumText");
 });
 
 function send(message) {

@@ -12,10 +12,8 @@ function mark(element, delay, end = 0, index, scrollTo = true) {
 		element.style.outline = "2px solid red";
 		element.style.outlineOffset = "2px";
 
-		if (end === 0) {
-			index === end
-				? notify(2000, 0, null, "Done", "Marked all elements")
-				: null;
+		if (index == end) {
+			notify(2000, 0, null, "Done", "Marked all elements");
 		}
 	}, delay);
 }
