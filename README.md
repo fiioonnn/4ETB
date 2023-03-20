@@ -2,3 +2,15 @@
 # 4ETB
 4ETB - Toolbox to find and fix stupid errors on a website.
 
+### Planned Features
+- Implementing W3 Html & CSS checks
+- Open backend based on CMS (typo / wp) (navigate to wp-admin or /typo3)
+- Master Check (run a complete test on the current page also crawl through all links on current website)
+
+### Planned Improvements
+- Refactoring core
+- Using imports
+- minimize code
+- use nativ notifications
+- Adobe ID fetch (select between preview, licensed and all) also crawl through website automatically
+
