@@ -12,4 +12,5 @@
 - Using imports
 - minimize code
 - use nativ notifications
+- Adobe ID fetch (select between preview, licensed and all) also crawl through website automatically
 
