@@ -1,0 +1,1 @@
+function mark(e,o,t=0,l=!0){setTimeout((()=>{l&&e.scrollIntoView({behavior:"smooth",block:"center"}),e.style.outline="1px solid red",e.style.outlineOffset="2px",0===t&&index===t&&notify(2e3,0,null,"Done","Marked all elements")}),o)}function copyToClipboard(e){navigator.clipboard.writeText(e).then((()=>{notify(3e3,0,null,"Copied to clipboard",e)}))}
