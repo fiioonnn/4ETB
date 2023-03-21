@@ -8,6 +8,7 @@
 - Master Check (run a complete test on the current page also crawl through all links on current website)
 - check headings (count h1)
 - toggle designmode
+- sub menu inside the popup (like firefox)
 
 ### Planned Improvements
 - Refactoring core
