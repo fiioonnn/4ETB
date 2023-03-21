@@ -9,6 +9,7 @@
 - check headings (count h1)
 - toggle designmode
 - sub menu inside the popup (like firefox)
+- settings page (notification settings / mark settings)
 
 ### Planned Improvements
 - Refactoring core
