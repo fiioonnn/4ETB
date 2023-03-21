@@ -10,6 +10,7 @@
 - toggle designmode
 - sub menu inside the popup (like firefox) (categories)
 - settings page (notification settings / mark settings)
+- CSS Validation
 
 ### Planned Improvements
 - Refactoring core
