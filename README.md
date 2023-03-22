@@ -10,7 +10,6 @@
 
 - Better notification system
 - Notification duration indicator
--
 - Improved layout and design
 - Better, simpler and cleaner core
 - Added Beta tags for experimental functions
