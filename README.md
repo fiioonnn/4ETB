@@ -4,6 +4,8 @@
 
 4ETB - 4 EYES TOOLBOX
 
+Extend your browser with some useful functions.
+
 ## v2.0.0
 
 ### Release Notes
