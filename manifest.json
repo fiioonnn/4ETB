@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "4ETB",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"description": "4ETB - 4 EYES TOOLBOX.",
 	"author": "fiioonnn",
 	"homepage_url": "https://github.com/fiioonnn/4ETB/",
@@ -33,13 +33,7 @@
 			"css": ["assets/css/notify.css", "assets/css/mark.css"]
 		}
 	],
-	"permissions": [
-		"activeTab",
-		"<all_urls>",
-		"devtools",
-		"storage",
-		"notifications"
-	],
+	"permissions": ["activeTab", "<all_urls>"],
 
 	"web_accessible_resources": ["assets/icons/4ETB.svg"]
 }

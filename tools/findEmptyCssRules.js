@@ -18,7 +18,20 @@ export default function findEmptyCssRules() {
 	});
 
 	notify({
-		text: [`Total rules: :: ${totalRules}`, `Empty rules: :: ${emptyRules}`],
-		duration: 5000,
+		text: [
+			`Total rules: :: ${totalRules}`,
+			`Empty rules: :: ${emptyRules}`,
+			`<br>`,
+			`${result.join("<br>")}`,
+		],
+		buttons: [
+			{
+				text: "Copy to clipboard",
+				callback: () => {
+					copyToClipboard(result.join("\n"));
+				},
+			},
+		],
+		duration: 0,
 	});
 }
