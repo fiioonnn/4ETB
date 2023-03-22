@@ -20,7 +20,7 @@ export default function findLoremIpsumText() {
 		"strong",
 		"u",
 	];
-	const loremIpsum = ["lorem", "ipsum", "dolor", "sit", "amet", "consectetur"];
+	const loremIpsum = ["lorem", "ipsum"];
 	let result = [];
 
 	elements.forEach((element) => {
@@ -28,21 +28,28 @@ export default function findLoremIpsumText() {
 
 		const text = element.textContent.toLowerCase();
 
-		if (loremIpsum.some((word) => text.includes(word))) {
-			result.push(element);
-		}
+		loremIpsum.forEach((word) => {
+			if (text.includes(word)) {
+				const regex = new RegExp(`\\b${word}\\b`, "g");
+				const matches = text.match(regex);
+
+				if (matches) {
+					result.push(element);
+				}
+			}
+		});
 	});
 
 	notify({
 		text: `Lorem ipsum text found: :: ${result.length}`,
 		buttons: [
-			result.length > 0 && {
+			result.length && {
 				text: "Mark lorem ipsum text",
 				callback: () => {
 					mark(result);
 				},
 			},
 		],
-		duration: 0,
+		duration: 10000,
 	});
 }

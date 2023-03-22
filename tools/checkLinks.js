@@ -76,6 +76,6 @@ export default function checkLinks() {
 				},
 			},
 		],
-		duration: 0,
+		duration: 10000,
 	});
 }

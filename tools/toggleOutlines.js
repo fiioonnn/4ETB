@@ -23,7 +23,6 @@ export default function toggleOutlines() {
 	outlinesActive = !outlinesActive;
 
 	notify({
-		text: `Outlines ${outlinesActive ? "enabled" : "disabled"}`,
-		duration: 1000,
+		text: `Outlines ${outlinesActive ? "#enabled" : "#disabled"}`,
 	});
 }

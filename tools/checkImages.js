@@ -19,19 +19,19 @@ export default function checkImages() {
 			`Images without src: :: ${result.missingSrc.length}`,
 		],
 		buttons: [
-			result.missingAlt.length > 0 && {
+			result.missingAlt.length && {
 				text: "Mark images without alt",
 				callback: () => {
 					mark(result.missingAlt);
 				},
 			},
-			result.missingSrc.length > 0 && {
+			result.missingSrc.length && {
 				text: "Mark images without src",
 				callback: () => {
 					mark(result.missingSrc);
 				},
 			},
 		],
-		duration: 0,
+		duration: 10000,
 	});
 }

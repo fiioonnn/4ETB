@@ -35,5 +35,9 @@
 	],
 	"permissions": ["activeTab", "<all_urls>"],
 
-	"web_accessible_resources": ["assets/icons/4ETB.svg"]
+	"web_accessible_resources": [
+		"assets/icons/4ETB.svg",
+		"assets/icons/chevron-left.svg",
+		"assets/icons/chevron-right.svg"
+	]
 }

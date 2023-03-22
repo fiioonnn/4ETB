@@ -18,5 +18,6 @@ export default function findOverflowingElements() {
 				},
 			},
 		],
+		duration: 10000,
 	});
 }

@@ -4,68 +4,87 @@ async function run(file) {
 }
 
 export default function findAdobeStockIds() {
-	const images = Array.from(document.querySelectorAll("img"));
 	let result = {
 		all: [],
 		licensed: [],
 		preview: [],
 	};
-	let addedCount = 0;
 
-	if (!images) {
-		return notify({
-			text: "No images found",
-		});
-	}
+	let addedCount = 0;
 
 	if (!localStorage.getItem("adobe_ids")) {
 		localStorage.setItem("adobe_ids", JSON.stringify(result));
 	}
 
-	result = JSON.parse(localStorage.getItem("adobe_ids"));
+	const ids = getAdobeIds();
 
-	images.forEach((image) => {
-		const src = image.src;
-
-		if (!src.includes("adobestock")) return;
-
-		const id = src
-			.split("adobestock_")[1]
-			.split("-")[0]
-			.split("_")[0]
-			.split(".")[0];
-
-		if (result.all.includes(id)) return;
-		console.log(id, result.all);
-		addedCount++;
-
-		if (src.includes("preview")) result.preview.push(id);
-		if (!src.includes("preview")) result.licensed.push(id);
-
-		result.all.push(id);
-
-		localStorage.setItem("adobe_ids", JSON.stringify(result));
-	});
-
-	if (result.all.length == 0) {
+	if (!ids || ids?.length === 0) {
 		return notify({
 			text: "No Adobe Stock images found",
 		});
 	}
 
+	ids.forEach((id) => {
+		if (id.includes("preview")) {
+			id = id.replace("_preview", "");
+			result.preview.push(id);
+		} else {
+			result.licensed.push(id);
+		}
+		result.all.push(id);
+	});
+
+	localStorage.setItem("adobe_ids", JSON.stringify(result));
+
 	notify({
 		text: [
-			`Found AdobeStock ID's: :: ${result.all.length}`,
-			`Added: :: ${addedCount}`,
+			`Found AdobeStock ID's: :: ${result?.all.length}`,
+			`Licensed: :: ${result?.licensed.length}`,
+			`Preview: :: ${result?.preview.length}`,
+			`Added new: :: ${addedCount}`,
 		],
 		buttons: [
-			result.all.length > 0 && {
-				text: "Show all fetched Adobe Stock IDs",
+			{
+				text: "Show",
 				callback: () => {
 					run("showAdobeStockIds");
 				},
 			},
 		],
-		duration: 5000,
+		duration: 10000,
 	});
+}
+
+function getAdobeIds() {
+	const regex = /adobestock_[0-9]+[\d+]+([-_]preview)?/gi;
+	const source = getPageSource();
+	if (!source) return;
+	const matches = source.match(regex)?.map((match) => {
+		return match.toLowerCase().replace("adobestock_", "");
+	});
+
+	return [...new Set(matches)];
+}
+
+function getPageSource() {
+	let source = "";
+
+	const stylesheets = Array.from(
+		document.querySelectorAll("link[rel='stylesheet']")
+	);
+	const js = Array.from(document.querySelectorAll("script"));
+	const images = Array.from(document.querySelectorAll("img"));
+	const html = document.documentElement.outerHTML;
+	const css = stylesheets.map((stylesheet) => {
+		return Array.from(stylesheet.sheet.cssRules).map((rule) => {
+			return rule.cssText;
+		});
+	});
+
+	source += js.join("");
+	source += images.map((image) => image.src).join("");
+	source += html;
+	source += css;
+
+	return source;
 }

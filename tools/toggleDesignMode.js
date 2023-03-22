@@ -3,7 +3,7 @@ export default function toggleDesignMode() {
 
 	notify({
 		text: `Design Mode ${
-			document.designMode === "on" ? "enabled" : "disabled"
+			document.designMode === "on" ? "#enabled" : "#disabled"
 		}`,
 	});
 }

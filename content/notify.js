@@ -9,7 +9,7 @@ function notify(props = {}) {
 	const notification = document.createElement("div");
 
 	if (!props.title) props.title = "4ETB";
-	if (props.duration === undefined) props.duration = 2000;
+	if (props.duration === undefined) props.duration = 1000;
 
 	if (typeof props.text === "string") {
 		props.text = [props.text];
@@ -23,20 +23,21 @@ function notify(props = {}) {
 			.join("");
 
 		let colors = {
-			true: "#4ece4e",
-			false: "#e44848",
-			enabled: "#4ece4e",
-			disabled: "#e44848",
-			undefined: "#cece4e",
-			missing: "#e44848",
-			ok: "#4ece4e",
-			error: "#e44848",
+			"#true": "#4ece4e",
+			"#false": "#e44848",
+			"#enabled": "#4ece4e",
+			"#disabled": "#e44848",
+			"#undefined": "#cece4e",
+			"#missing": "#e44848",
+			"#ok": "#4ece4e",
+			"#error": "#e44848",
+			"#warning": "#cece4e",
 		};
 
 		for (const [key, value] of Object.entries(colors)) {
 			props.text = props.text.replace(
-				new RegExp(key, "g"),
-				`<b style="color: ${value};">${key}</b>`
+				new RegExp(key, "gi"),
+				`<b style="color: ${value};">${key.substring(1)}</b>`
 			);
 		}
 	}

@@ -25,13 +25,13 @@ export default function findEmptyCssRules() {
 			`${result.join("<br>")}`,
 		],
 		buttons: [
-			{
+			result.length && {
 				text: "Copy to clipboard",
 				callback: () => {
 					copyToClipboard(result.join("\n"));
 				},
 			},
 		],
-		duration: 0,
+		duration: 10000,
 	});
 }
