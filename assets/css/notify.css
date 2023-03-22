@@ -1,0 +1,149 @@
+/*include variable font face from local path montserrat */
+
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	src: local("montserrat"), local("montserrat"),
+		url("../fonts/montserrat.ttf") format("ttf");
+}
+
+:root {
+	--fetb-background: #42414d;
+	--fetb-primary: #0078ff;
+	--fetb-progress: 0%;
+}
+
+.fouretb-notification *,
+.fouretb-notifications * {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-size: 15px;
+	color: #ccc;
+	font-family: "montserrat";
+	font-weight: 500;
+	line-height: 1.2;
+	border: 0;
+	background: inherit;
+	letter-spacing: normal;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: none;
+	-moz-text-size-adjust: none;
+	-ms-text-size-adjust: none;
+}
+
+.fouretb-notifications {
+	background: transparent;
+	position: fixed;
+	top: 15px;
+	right: 15px;
+	z-index: 9999999;
+	/* pointer-events: none; */
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+	gap: 15px;
+	color: #ddd;
+}
+
+.fouretb-notification {
+	padding: 15px;
+	background: var(--fetb-background);
+	min-width: 300px;
+	max-width: 350px;
+	width: fit-content;
+	border-radius: 10px;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+	transition: all 0.3s ease;
+	animation: show 0.3s ease;
+	overflow: hidden;
+	position: relative;
+}
+
+.fouretb-notification__body b {
+	font-weight: 600;
+}
+.fouretb-notification__body p {
+	display: flex;
+	align-items: center;
+	gap: 5px;
+	margin: 0;
+}
+
+.fouretb-notification::after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: var(--fetb-progress);
+	height: 3px;
+	background: var(--fetb-primary);
+	transition: all 0.3s ease;
+}
+
+.fouretb-notification__head {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	user-select: none;
+}
+
+.fouretb-notification__head + .fouretb-notification__body {
+	margin-top: 15px;
+}
+
+.fouretb-notification__head img {
+	width: 28px;
+	height: 28px;
+	border-radius: 5px;
+}
+
+.fouretb-notification__head h3 {
+	font-weight: 700;
+	font-size: 16px;
+	color: #fff;
+	text-transform: uppercase;
+}
+
+.fouretb-notification__body {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
+
+.fouretb-notification__buttons {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+	margin-top: 15px;
+	position: relative;
+}
+
+.fouretb-notification__buttons button {
+	background: var(--fetb-primary);
+	border-radius: 5px;
+	border: none;
+	cursor: pointer;
+	padding: 8px 10px;
+	font-weight: 600;
+	transition: all 0.3s ease;
+	color: #fff;
+	text-align: center;
+	font-size: 12px;
+}
+
+.fouretb-notification__buttons button:hover {
+	opacity: 0.8;
+}
+
+@keyframes show {
+	0% {
+		transform: translateX(200%);
+	}
+	100% {
+		transform: translateX(0);
+	}
+}

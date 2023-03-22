@@ -1,0 +1,145 @@
+@font-face {
+	font-family: "Montserrat";
+	font-style: normal;
+	src: local("montserrat"), local("montserrat"),
+		url("../fonts/montserrat.ttf") format("ttf");
+}
+
+a,
+b,
+body,
+center,
+code,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+html,
+i,
+img,
+li,
+mark,
+menu,
+p,
+s,
+span,
+strong,
+u,
+ul {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+menu {
+	display: block;
+}
+body {
+	line-height: 1;
+	background: #42414d;
+	overflow: hidden;
+	min-width: 300px;
+	max-width: 350px;
+	width: fit-content;
+	font-size: 13px;
+	font-family: "montserrat";
+	color: #fbfbfe;
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+}
+ul {
+	list-style: none;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+.fetb-menu > * {
+	font-family: "montserrat";
+}
+
+.fetb-menu {
+	padding: 7px;
+}
+
+.fetb-menu__item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	padding: 10px 8px;
+	border-radius: 5px;
+}
+
+.fetb-menu__item:hover:not(
+		.fetb-menu__item--header,
+		.fetb-menu__item--has-sub
+	) {
+	background-color: #53525d;
+}
+
+.fetb-menu__item span {
+	font-size: 90%;
+}
+
+.fetb-menu__item--header {
+	font-weight: 700;
+	font-size: 120%;
+}
+.fetb-menu__item--header img {
+	width: 24px;
+	height: 24px;
+	border-radius: 5px;
+}
+.fetb-menu__item--header .version {
+	margin-left: auto;
+	font-weight: 400;
+	opacity: 0.5;
+}
+.fetb-menu__item--seperator {
+	position: relative;
+	margin-bottom: 15px;
+}
+.fetb-menu__item--seperator::before {
+	content: "";
+	position: absolute;
+	height: 1px;
+	width: 100%;
+	background: #71707a;
+	top: calc(100% + 7px);
+	left: 50%;
+	-webkit-transform: translateX(-50%);
+	transform: translateX(-50%);
+}
+
+.fetb-menu__item--beta::after {
+	content: "beta";
+	display: block;
+	background: #cf4b4b;
+	padding: 2px 4px;
+	border-radius: 5px;
+	font-size: 10px;
+	white-space: nowrap;
+}
+
+.fetb-menu__item--coming-soon::after {
+	content: "coming soon";
+	display: block;
+	background: rgba(255, 255, 255, 0.2);
+	padding: 2px 4px;
+	border-radius: 5px;
+	font-size: 10px;
+	white-space: nowrap;
+}
+
+.fetb-menu__item--disabled {
+	opacity: 0.5;
+	pointer-events: none;
+}
