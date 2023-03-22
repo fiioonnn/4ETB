@@ -95,7 +95,7 @@ function notify(props = {}) {
 	}
 
 	notification.hide = () => {
-		notification.style.transform = "translateX(200%)";
+		notification.style.transform = "translateX(-200%)";
 		setTimeout(() => {
 			notification.remove();
 			clearInterval(timer);
