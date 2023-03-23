@@ -29,7 +29,6 @@ register("#showAdobeStockIds");
 register("#clearAdobeStockIds");
 
 register("#validateHtml");
-register("#validateCss");
 
 function register(id) {
 	console.log(id);
