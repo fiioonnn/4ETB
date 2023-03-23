@@ -48,11 +48,12 @@ function notify(props = {}) {
 	);
 
 	notification.classList.add("fouretb-notification");
+	// ! needs to get sanitized
 	notification.innerHTML = `
 		<div class="fouretb-notification__head">
-			<img src="${browser.runtime.getURL("assets/icons/4ETB.svg")}"/>
+				<img src="${browser.runtime.getURL("assets/icons/4ETB.svg")}"/>
 				<h3>${props?.title}</h3>
-			</div>
+		</div>
 			${
 				props?.text
 					? `<div class="fouretb-notification__body">${props?.text}</div>`
@@ -62,9 +63,7 @@ function notify(props = {}) {
 				props.buttons && props.buttons.some((button) => button)
 					? `<div class="fouretb-notification__buttons"></div>`
 					: ""
-			}
-		</div>
-	`;
+			}`;
 
 	if (props.buttons) {
 		props.buttons.forEach((button) => {

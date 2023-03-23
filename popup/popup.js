@@ -61,3 +61,10 @@ subMenus.forEach((menu) => {
 		menu.classList.remove("menu__list--active");
 	};
 });
+
+// Add info from manifest
+
+let manifest = browser.runtime.getManifest();
+
+document.querySelector("#name").innerText = manifest.name;
+document.querySelector("#version").innerText = manifest.version;
