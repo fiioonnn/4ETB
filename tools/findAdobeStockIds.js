@@ -38,7 +38,7 @@ export default function findAdobeStockIds() {
 
 	notify({
 		text: [
-			`Found ${ids.length} AdobeStock ID's`,
+			`Found ${ids.length} ID's`,
 			`Added ${addedCount} new ID's to storage`,
 		],
 		duration: 10000,
