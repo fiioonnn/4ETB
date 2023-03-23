@@ -25,13 +25,12 @@ register("#findLoremIpsumText");
 register("#findOverflowingElements");
 
 register("#findAdobeStockIds");
-register("#showAdobeStockIds");
+// register("#showAdobeStockIds");
 register("#clearAdobeStockIds");
 
 register("#validateHtml");
 
 function register(id) {
-	console.log(id);
 	document.querySelector(id).onclick = () => {
 		browser.runtime.sendMessage({
 			action: id.substring(1),

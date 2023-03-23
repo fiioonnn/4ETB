@@ -1,7 +1,7 @@
 {
 	"manifest_version": 2,
 	"name": "4ETB",
-	"version": "2.1.1",
+	"version": "2.1.2",
 	"description": "4ETB - 4 EYES TOOLBOX.",
 	"author": "fiioonnn",
 	"homepage_url": "https://github.com/fiioonnn/4ETB/",
@@ -38,6 +38,28 @@
 	"web_accessible_resources": [
 		"assets/icons/4ETB.svg",
 		"assets/icons/chevron-left.svg",
-		"assets/icons/chevron-right.svg"
+		"assets/icons/chevron-right.svg",
+		"assets/fonts/montserrat-v25-latin-500.eot",
+		"assets/fonts/montserrat-v25-latin-500.svg",
+		"assets/fonts/montserrat-v25-latin-500.ttf",
+		"assets/fonts/montserrat-v25-latin-500.woff",
+		"assets/fonts/montserrat-v25-latin-500.woff2",
+		"assets/fonts/montserrat-v25-latin-600.eot",
+		"assets/fonts/montserrat-v25-latin-600.svg",
+		"assets/fonts/montserrat-v25-latin-600.ttf",
+
+		"assets/fonts/montserrat-v25-latin-600.woff",
+		"assets/fonts/montserrat-v25-latin-600.woff2",
+		"assets/fonts/montserrat-v25-latin-700.eot",
+		"assets/fonts/montserrat-v25-latin-700.svg",
+		"assets/fonts/montserrat-v25-latin-700.ttf",
+		"assets/fonts/montserrat-v25-latin-700.woff",
+		"assets/fonts/montserrat-v25-latin-700.woff2",
+		"assets/fonts/montserrat-v25-latin-800.eot",
+
+		"assets/fonts/montserrat-v25-latin-800.svg",
+		"assets/fonts/montserrat-v25-latin-800.ttf",
+		"assets/fonts/montserrat-v25-latin-800.woff",
+		"assets/fonts/montserrat-v25-latin-800.woff2"
 	]
 }

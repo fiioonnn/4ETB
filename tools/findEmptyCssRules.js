@@ -6,7 +6,12 @@ export default function findEmptyCssRules() {
 	let result = [];
 
 	stylesheets.forEach((stylesheet) => {
-		const rules = Array.from(stylesheet.cssRules);
+		let rules;
+		try {
+			rules = Array.from(stylesheet.cssRules);
+		} catch (error) {
+			return;
+		}
 
 		rules.forEach((rule) => {
 			if (rule.cssText.includes("{}") || rule.cssText.includes("{ }")) {

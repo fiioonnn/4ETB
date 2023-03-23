@@ -38,21 +38,13 @@ export default function findAdobeStockIds() {
 
 	notify({
 		text: [
-			`Found AdobeStock ID's: :: ${result?.all.length}`,
-			`Licensed: :: ${result?.licensed.length}`,
-			`Preview: :: ${result?.preview.length}`,
-			`Added new: :: ${addedCount}`,
-		],
-		buttons: [
-			{
-				text: "Show",
-				callback: () => {
-					run("showAdobeStockIds");
-				},
-			},
+			`Found ${ids.length} AdobeStock ID's`,
+			`Added ${addedCount} new ID's to storage`,
 		],
 		duration: 10000,
 	});
+
+	run("showAdobeStockIds");
 }
 
 function getAdobeIds() {
@@ -76,9 +68,13 @@ function getPageSource() {
 	const images = Array.from(document.querySelectorAll("img"));
 	const html = document.documentElement.outerHTML;
 	const css = stylesheets.map((stylesheet) => {
-		return Array.from(stylesheet.sheet.cssRules).map((rule) => {
-			return rule.cssText;
-		});
+		try {
+			return Array.from(stylesheet.sheet.cssRules).map((rule) => {
+				return rule.cssText;
+			});
+		} catch (error) {
+			return;
+		}
 	});
 
 	source += js.join("");

@@ -15,7 +15,7 @@ export default function showAdobeStockIds() {
 
 	notify({
 		text: [
-			`Found AdobeStock ID's: :: ${result?.all.length}`,
+			`AdobeStock ID's: :: ${result?.all.length}`,
 			`Licensed: :: ${result?.licensed.length}`,
 			`Preview: :: ${result?.preview.length}`,
 		],
