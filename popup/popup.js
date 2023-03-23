@@ -23,7 +23,6 @@ register("#removeAllMarkers");
 register("#findEmptyCssRules");
 register("#findLoremIpsumText");
 register("#findOverflowingElements");
-register("#findAdobeStockIds");
 
 register("#findAdobeStockIds");
 register("#showAdobeStockIds");
@@ -33,6 +32,7 @@ register("#validateHtml");
 register("#validateCss");
 
 function register(id) {
+	console.log(id);
 	document.querySelector(id).onclick = () => {
 		browser.runtime.sendMessage({
 			action: id.substring(1),
