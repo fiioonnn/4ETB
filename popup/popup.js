@@ -25,10 +25,12 @@ register("#findLoremIpsumText");
 register("#findOverflowingElements");
 
 register("#findAdobeStockIds");
-// register("#showAdobeStockIds");
 register("#clearAdobeStockIds");
 
 register("#validateHtml");
+
+// Tools
+register("#copyDomain");
 
 function register(id) {
 	document.querySelector(id).onclick = () => {

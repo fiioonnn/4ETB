@@ -1,29 +1,18 @@
-// function mark(element, delay, end = 0, index, scrollTo = true) {
-// 	document.querySelectorAll("*").forEach((element) => {
-// 		element.style.outline = "";
-// 		element.style.outlineOffset = "";
-// 	});
-
-// 	setTimeout(() => {
-// 		if (scrollTo) {
-// 			element.scrollIntoView({ behavior: "smooth", block: "center" });
-// 		}
-
-// 		element.style.outline = "2px solid red";
-// 		element.style.outlineOffset = "2px";
-
-// 		if (index == end) {
-// 			notify(2000, 0, null, "Done", "Marked all elements");
-// 		}
-// 	}, delay);
-// }
-
-function copyToClipboard(text) {
-	navigator.clipboard.writeText(text).then(() => {
+async function copyToClipboard(text) {
+	await navigator.clipboard.writeText(text).then(() => {
 		notify({
 			text: "Copied to clipboard",
 		});
 	});
+}
+
+async function copyPageUrl() {
+	try {
+		await navigator.clipboard.writeText(location.href);
+		console.log("Page URL copied to clipboard");
+	} catch (err) {
+		console.error("Failed to copy: ", err);
+	}
 }
 
 function randomColor() {
