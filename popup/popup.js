@@ -30,7 +30,8 @@ register("#clearAdobeStockIds");
 register("#validateHtml");
 
 // Tools
-register("#copyDomain");
+register("#toggleOverflow");
+register("#getDomain");
 
 function register(id) {
 	document.querySelector(id).onclick = () => {
